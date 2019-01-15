@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+    <bean id="helloWorld" class="com.stackroute.domain.HelloWorld" scope="prototype">
+        <constructor-arg index="0" ref="quoteA"  ></constructor-arg>
+    </bean>
+
+
+    <bean name="helloWorldA,samplehello" class="com.stackroute.domain.HelloWorld" autowire="byName">
+    <constructor-arg index="0" ref="quoteB" ></constructor-arg>
+    </bean>
+
+    <!--<bean id="helloWorldA" class="com.stackroute.domain.HelloWorld">-->
+        <!--<constructor-arg index="0" ref="quoteB" ></constructor-arg>-->
+    <!--</bean>-->
+
+    <bean id="quoteA" class="com.stackroute.domain.Quote" >
+        <property name="author" value="Komal"></property>
+        <property name="quotation" value="Where there is a will, There is a way"></property>
+    </bean>
+
+    <bean id="quoteB" class="com.stackroute.domain.Quote" >
+        <constructor-arg name="author" value="Hima"></constructor-arg>
+        <constructor-arg name="quotation" value="Faded" ></constructor-arg>
+    </bean>
+
+    <bean id="quoteC" class="com.stackroute.domain.Quote" >
+
+        <constructor-arg type="String" value="Meghana"></constructor-arg>
+        <constructor-arg type="String" value="Biryani" ></constructor-arg>
+    </bean>
+
+
+</beans>
